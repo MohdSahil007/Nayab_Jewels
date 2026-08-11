@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayab Jewels — Dhampur, UP</title>
+<meta name="description" content="Nayab Jewels — fashion, semi-fine & fine jewelry from Dhampur, UP. Order online, we confirm on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#211018;
+    --plum-2:#33192a;
+    --wine:#7a2142;
+    --wine-light:#9a3159;
+    --gold:#c9a24b;
+    --gold-light:#e7cd8b;
+    --ivory:#faf6ef;
+    --blush:#f3e6df;
+    --ink:#2a2124;
+    --muted:#8a7a76;
+    --line:#e7dcd1;
+    --success:#3f7a56;
+    --radius:2px;
+    --shadow:0 10px 30px rgba(33,16,24,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:2px solid var(--wine);outline-offset:2px;}
+
+  /* ---------- foil divider signature ---------- */
+  .foil{
+    height:2px;
+    width:64px;
+    background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    margin:14px auto;
+  }
+  .foil.left{margin:14px 0;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:60;
+    background:rgba(33,16,24,0.96);
+    backdrop-filter:blur(6px);
+    color:var(--ivory);
+    border-bottom:1px solid rgba(201,162,75,0.35);
+  }
+  .header-inner{
+    max-width:1180px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.1;}
+  .brand .name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;letter-spacing:0.03em;color:var(--gold-light);}
+  .brand .tag{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#cbb8be;margin-top:2px;}
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  .icon-btn{
+    background:transparent;border:1px solid rgba(231,205,139,0.5);
+    color:var(--gold-light);border-radius:50%;
+    width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+    position:relative;transition:background .2s, transform .2s;
+  }
+  .icon-btn:hover{background:rgba(201,162,75,0.15);transform:translateY(-1px);}
+  .badge{
+    position:absolute;top:-6px;right:-6px;background:var(--wine-light);
+    color:#fff;font-size:0.62rem;min-width:18px;height:18px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:600;
+    border:1.5px solid var(--plum);
+    transition:transform .25s;
+  }
+  .badge.bump{animation:bump .35s ease;}
+  @keyframes bump{0%{transform:scale(1);}40%{transform:scale(1.35);}100%{transform:scale(1);}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:56vh;display:flex;align-items:flex-end;
+    background:#241018;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    opacity:0.55;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(33,16,24,0.15) 0%, rgba(33,16,24,0.55) 55%, rgba(33,16,24,0.94) 100%);
+  }
+  .hero-content{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:60px 20px 40px;color:var(--ivory);width:100%;}
+  .eyebrow{
+    font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);
+    margin-bottom:10px;display:block;
+  }
+  .hero h1{font-size:clamp(2.2rem,7vw,3.6rem);margin:0 0 12px;color:#fff;}
+  .hero p.sub{max-width:480px;color:#e6d9d3;font-size:1rem;line-height:1.6;margin:0 0 22px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 26px;border-radius:var(--radius);border:1px solid transparent;
+    font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase;font-weight:500;
+    transition:transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-gold{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#2b1a0c;}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,75,0.35);}
+  .btn-outline{border-color:rgba(250,246,239,0.5);color:var(--ivory);background:transparent;}
+  .btn-outline:hover{background:rgba(250,246,239,0.08);}
+
+  /* ---------- category filter ---------- */
+  .filter-bar{
+    position:sticky;top:69px;z-index:50;
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+    padding:14px 20px;
+  }
+  .filter-inner{
+    max-width:1180px;margin:0 auto;display:flex;gap:10px;overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .filter-inner::-webkit-scrollbar{display:none;}
+  .pill{
+    flex:0 0 auto;padding:9px 18px;border-radius:999px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);font-size:0.82rem;letter-spacing:0.02em;
+    transition:all .2s;
+  }
+  .pill:hover{border-color:var(--gold);}
+  .pill.active{background:var(--plum);color:var(--gold-light);border-color:var(--plum);}
+
+  /* ---------- products ---------- */
+  .section{max-width:1180px;margin:0 auto;padding:52px 20px;}
+  .section-head{text-align:center;margin-bottom:36px;}
+  .section-head h2{font-size:clamp(1.6rem,4vw,2.2rem);margin:0 0 4px;}
+  .section-head p{color:var(--muted);font-size:0.92rem;margin:0;}
+
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;
+  }
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:box-shadow .25s, border-color .25s, transform .25s;
+    position:relative;
+  }
+  .card:hover{box-shadow:var(--shadow);border-color:var(--gold);transform:translateY(-3px);}
+  .card .cat-tag{
+    position:absolute;top:10px;left:10px;background:rgba(33,16,24,0.85);color:var(--gold-light);
+    font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:5px 9px;border-radius:2px;z-index:2;
+  }
+  .card .img-wrap{aspect-ratio:1/1;overflow:hidden;background:var(--blush);}
+  .card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .card:hover .img-wrap img{transform:scale(1.06);}
+  .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .card h3{font-size:1.02rem;margin:0;line-height:1.3;font-weight:600;}
+  .card .desc{font-size:0.82rem;color:var(--muted);line-height:1.5;margin:0;flex:1;}
+  .card .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+  .card .price{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--wine);font-weight:700;}
+  .add-btn{
+    width:100%;margin-top:10px;padding:11px;border:1px solid var(--plum);border-radius:var(--radius);
+    background:var(--plum);color:var(--gold-light);font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;
+    transition:background .2s, color .2s;
+  }
+  .add-btn:hover{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .add-btn.added{background:var(--success);border-color:var(--success);color:#fff;}
+
+  /* ---------- about / trust strip ---------- */
+  .trust{background:var(--blush);}
+  .trust .section{padding:40px 20px;}
+  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;text-align:center;}
+  .trust-item h3{font-size:1rem;margin:0 0 6px;}
+  .trust-item p{font-size:0.85rem;color:var(--muted);margin:0;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--plum);color:#e6d9d3;padding:44px 20px 24px;}
+  .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;}
+  footer h4{color:var(--gold-light);font-family:'Playfair Display',serif;font-size:1.1rem;margin:0 0 10px;}
+  footer p, footer a{font-size:0.86rem;color:#d9c9c3;line-height:1.7;text-decoration:none;}
+  footer a:hover{color:var(--gold-light);}
+  .footer-bottom{max-width:1180px;margin:30px auto 0;padding-top:18px;border-top:1px solid rgba(231,205,139,0.2);font-size:0.75rem;color:#a99089;text-align:center;}
+
+  /* ---------- floating buttons ---------- */
+  .floating{position:fixed;right:20px;bottom:20px;z-index:70;display:flex;flex-direction:column;gap:14px;align-items:flex-end;}
+  .fab{
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(33,16,24,0.35);position:relative;border:none;transition:transform .2s;
+  }
+  .fab:hover{transform:scale(1.06);}
+  .fab-cart{background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#2b1a0c;}
+  .fab-wa{background:#25D366;color:#fff;}
+  .fab .badge{top:-4px;right:-4px;border-color:var(--ivory);}
+
+  /* ---------- cart drawer ---------- */
+  .overlay{
+    position:fixed;inset:0;background:rgba(33,16,24,0.5);z-index:80;
+    opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:min(420px,100%);
+    background:var(--ivory);z-index:90;box-shadow:-10px 0 30px rgba(0,0,0,0.2);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);transition:transform .3s ease;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+    background:var(--plum);color:var(--ivory);
+  }
+  .drawer-head h3{margin:0;font-size:1.15rem;color:var(--gold-light);}
+  .close-btn{background:none;border:none;color:var(--ivory);font-size:1.4rem;line-height:1;padding:4px;}
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 20px;}
+  .empty-cart{text-align:center;color:var(--muted);padding:60px 10px;font-size:0.9rem;}
+  .cart-item{
+    display:grid;grid-template-columns:64px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:2px;background:var(--blush);}
+  .ci-name{font-size:0.88rem;font-weight:500;margin:0 0 2px;}
+  .ci-price{font-size:0.78rem;color:var(--muted);margin:0 0 8px;}
+  .qty-row{display:flex;align-items:center;gap:8px;}
+  .qty-btn{
+    width:26px;height:26px;border:1px solid var(--line);background:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--wine);
+  }
+  .qty-btn:hover{border-color:var(--wine);}
+  .qty-val{min-width:18px;text-align:center;font-size:0.85rem;}
+  .ci-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+  .ci-subtotal{font-family:'Playfair Display',serif;font-weight:700;color:var(--wine);font-size:0.95rem;}
+  .remove-link{background:none;border:none;color:var(--muted);font-size:0.72rem;text-decoration:underline;padding:0;}
+  .remove-link:hover{color:var(--wine);}
+  .drawer-foot{border-top:1px solid var(--line);padding:16px 20px 22px;background:#fff;}
+  .total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .total-row span:first-child{font-size:0.9rem;color:var(--muted);}
+  .total-row .grand{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--wine);}
+  .btn-full{width:100%;}
+
+  /* ---------- modal (checkout / confirm) ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(33,16,24,0.55);z-index:100;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:auto;}
+  .modal{
+    background:#fff;border-radius:4px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;
+    padding:28px 24px;position:relative;transform:translateY(14px);transition:transform .25s;
+    box-shadow:var(--shadow);
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal h3{margin:0 0 4px;font-size:1.3rem;}
+  .modal .sub-text{color:var(--muted);font-size:0.85rem;margin:0 0 18px;}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;color:var(--muted);}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .field input, .field textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:2px;font-family:inherit;font-size:0.92rem;
+    background:var(--ivory);
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--wine);}
+  .field textarea{resize:vertical;min-height:70px;}
+  .order-summary-box{background:var(--blush);border-radius:2px;padding:12px 14px;font-size:0.82rem;margin-bottom:16px;max-height:140px;overflow-y:auto;line-height:1.7;}
+  .order-summary-box strong{color:var(--wine);}
+  .submit-error{color:#a3324a;font-size:0.82rem;margin-top:6px;display:none;}
+
+  /* confirmation */
+  .confirm-icon{width:56px;height:56px;border-radius:50%;background:var(--success);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 16px;}
+  .confirm-body{text-align:center;}
+  .confirm-body p{color:var(--muted);font-size:0.92rem;line-height:1.6;}
+  .wa-link-btn{
+    display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 22px;
+    border-radius:2px;font-size:0.85rem;margin-top:8px;text-decoration:none;
+  }
+
+  .spinner{
+    width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;
+    animation:spin .7s linear infinite;display:inline-block;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  @media (max-width:600px){
+    .filter-bar{top:64px;}
+    .hero{min-height:64vh;}
+    .header-inner{padding:12px 16px;}
+    .section{padding:40px 16px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="name">Nayab Jewels</span>
+      <span class="tag">Dhampur, Uttar Pradesh</span>
+    </div>
+    <div class="header-actions">
+      <a href="tel:+919927330690" class="icon-btn" aria-label="Call the shop" title="Call us">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button class="icon-btn" id="cartIconBtn" aria-label="Open cart" title="Cart">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="badge" id="cartCountHeader" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://i.ibb.co/VcF2jL0G/female-friends-out-shopping-together-53876-25041.avif" alt="Two friends browsing jewelry together while shopping" loading="lazy" onerror="this.style.display='none';">
+  <div class="hero-content">
+    <span class="eyebrow">Fashion · Semi-Fine · Fine Jewelry</span>
+    <h1>Wear what feels<br>unmistakably yours.</h1>
+    <p class="sub">Nayab Jewels curates everyday fashion pieces, semi-fine silver and gemstone work, and fine diamond jewelry — all from our Dhampur studio, hand-picked for you.</p>
+    <div class="cta-row">
+      <a href="#shop" class="btn btn-gold">Shop the Collection</a>
+      <a href="https://wa.me/919927330690" target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner" id="filterBar">
+    <button class="pill active" data-cat="All">All Jewelry</button>
+    <button class="pill" data-cat="Fashion Jewelry">Fashion Jewelry</button>
+    <button class="pill" data-cat="Semi-Fine Jewelry">Semi-Fine Jewelry</button>
+    <button class="pill" data-cat="Fine Jewelry">Fine Jewelry</button>
+  </div>
+</div>
+
+<main>
+  <section class="section" id="shop">
+    <div class="section-head">
+      <h2>The Collection</h2>
+      <div class="foil"></div>
+      <p>Every piece shown here is in stock or available on short order — we confirm final details on WhatsApp.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <div class="trust">
+    <div class="section">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <h3>Order, then we confirm</h3>
+          <p>Place your order here — we call or WhatsApp you to confirm price, size and delivery.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Local &amp; personal</h3>
+          <p>Based in Dhampur, UP. Every order is packed and checked by hand before dispatch.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Pay on confirmation</h3>
+          <p>No online payment needed now. Pay only after your order is confirmed with the shop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Nayab Jewels</h4>
+      <p>Fashion, semi-fine &amp; fine jewelry, curated in Dhampur, UP.</p>
+    </div>
+    <div>
+      <h4>Visit / Contact</h4>
+      <p>Dhampur, Uttar Pradesh, India</p>
+      <p><a href="tel:+919927330690">+91 99273 30690</a></p>
+      <p><a href="mailto:sahilofficial681@gmail.com">sahilofficial681@gmail.com</a></p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="#shop">Shop the Collection</a></p>
+      <p><a href="https://wa.me/919927330690" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; <span id="year"></span> Nayab Jewels, Dhampur. All orders confirmed manually — no online payment collected.</div>
+</footer>
+
+<div class="floating">
+  <button class="fab fab-cart" id="fabCartBtn" aria-label="Open cart">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="badge" id="cartCountFab" hidden>0</span>
+  </button>
+  <a class="fab fab-wa" href="https://wa.me/919927330690" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.33 4.93L2.05 22l5.32-1.39a9.9 9.9 0 0 0 4.67 1.19h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2zm5.8 14.09c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.08.99-2.36c.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.63.48.24.56.8 1.96.87 2.1.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.29.28-.12.56.17.28.75 1.24 1.62 2.01 1.11 1 2.05 1.31 2.33 1.46.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.63-.14.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+  </a>
+</div>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button class="close-btn" id="closeDrawer" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="empty-cart">Your cart is empty.<br>Browse the collection and add a piece you love.</div>
+  </div>
+  <div class="drawer-foot" id="drawerFoot" hidden>
+    <div class="total-row"><span>Grand Total</span><span class="grand" id="grandTotal">₹0</span></div>
+    <button class="btn btn-gold btn-full" id="placeOrderBtn">Place Order</button>
+  </div>
+</aside>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal">
+    <button class="modal-close" id="closeCheckout" aria-label="Close">&times;</button>
+    <h3>Complete Your Order</h3>
+    <p class="sub-text">Fill in your details — Nayab Jewels will confirm availability and delivery on WhatsApp.</p>
+    <div class="order-summary-box" id="orderSummaryBox"></div>
+    <form id="orderForm">
+      <div class="field">
+        <label for="custName">Full Name *</label>
+        <input type="text" id="custName" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="custPhone">Phone Number *</label>
+        <input type="tel" id="custPhone" name="phone" required autocomplete="tel" pattern="[0-9+\s-]{7,15}">
+      </div>
+      <div class="field">
+        <label for="custAddress">Delivery Address *</label>
+        <textarea id="custAddress" name="address" required autocomplete="street-address"></textarea>
+      </div>
+      <div class="field">
+        <label for="custNotes">Special Instructions (optional)</label>
+        <textarea id="custNotes" name="instructions" placeholder="e.g. gift wrap, preferred delivery time"></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="New Order — Nayab Jewels">
+      <input type="hidden" name="order_summary" id="orderSummaryField">
+      <input type="hidden" name="grand_total" id="grandTotalField">
+      <button type="submit" class="btn btn-gold btn-full" id="submitOrderBtn">
+        <span id="submitLabel">Confirm &amp; Send Order</span>
+      </button>
+      <div class="submit-error" id="submitError">Something went wrong sending your order. Please try again, or message us directly on WhatsApp.</div>
+    </form>
+  </div>
+</div>
+
+<!-- CONFIRMATION MODAL -->
+<div class="modal-overlay" id="confirmOverlay">
+  <div class="modal confirm-body">
+    <button class="modal-close" id="closeConfirm" aria-label="Close">&times;</button>
+    <div class="confirm-icon">&#10003;</div>
+    <h3>Order Placed!</h3>
+    <p>Nayab Jewels will contact you on WhatsApp shortly to confirm availability, final pricing and delivery.</p>
+    <a class="wa-link-btn" href="https://wa.me/919927330690" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.33 4.93L2.05 22l5.32-1.39a9.9 9.9 0 0 0 4.67 1.19h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.85 9.85 0 0 0 12.04 2zm5.8 14.09c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.08.99-2.36c.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.63.48.24.56.8 1.96.87 2.1.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.29.28-.12.56.17.28.75 1.24 1.62 2.01 1.11 1 2.05 1.31 2.33 1.46.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.63-.14.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+      Message us on WhatsApp
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- CONFIG ---------------- */
+  var SHOP_NAME = "Nayab Jewels";
+  var SHOP_PHONE_INTL = "919927330690"; // wa.me format
+  var FORMSPREE_ACTION = "https://formspree.io/f/xeajgegq";
+  var CART_KEY = "nayabJewelsCart";
+
+  // Shown in place of any product image that fails to load (broken/expired link)
+  var FALLBACK_IMG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">' +
+    '<rect width="300" height="300" fill="#f3e6df"/>' +
+    '<g fill="none" stroke="#c9a24b" stroke-width="2.5">' +
+    '<circle cx="150" cy="120" r="34"/>' +
+    '<path d="M150 154 L150 190 M126 172 L174 172"/>' +
+    '</g>' +
+    '<text x="150" y="230" font-family="Jost, sans-serif" font-size="13" fill="#8a7a76" text-anchor="middle">Image unavailable</text>' +
+    '</svg>'
+  );
+
+  var PRODUCTS = [
+    {
+      id: "p1",
+      name: "Aurelia Pearl Drop Earrings",
+      price: 1499,
+      category: "Fashion Jewelry",
+      img: "https://i.ibb.co/qFgGbNsh/Aurelia-Pearl-Drop-Earrings.jpg",
+      desc: "Elegant faux-pearl drop earrings for everyday and occasion wear."
+    },
+    {
+      id: "p2",
+      name: "Celeste Gold-Plated Chain Necklace",
+      price: 1899,
+      category: "Fashion Jewelry",
+      img: "https://i.ibb.co/YBysng8g/Celeste-Gold-Plated-Chain-Necklace.webp",
+      desc: "Minimal gold-plated necklace with a delicate contemporary design."
+    },
+    {
+      id: "p3",
+      name: "Luna 925 Silver Solitaire Ring",
+      price: 3499,
+      category: "Semi-Fine Jewelry",
+      img: "https://i.ibb.co/YTKxtxSS/Luna-925-Silver-Solitaire-Ring.webp",
+      desc: "Classic 925 sterling silver ring featuring a sparkling solitaire stone."
+    },
+    {
+      id: "p4",
+      name: "Elara Gemstone Pendant",
+      price: 5999,
+      category: "Semi-Fine Jewelry",
+      img: "https://i.ibb.co/whHHkxdG/Elara-Gemstone-Pendant.webp",
+      desc: "Sophisticated gemstone pendant crafted for an elegant statement look."
+    },
+    {
+      id: "p5",
+      name: "\u00c9lan Diamond Stud Earrings",
+      price: 24999,
+      category: "Fine Jewelry",
+      img: "https://i.ibb.co/v43JVTR5/lan-Diamond-Stud-Earrings.webp",
+      desc: "Timeless diamond studs designed for refined everyday luxury."
+    }
+  ];
+
+  var productById = {};
+  PRODUCTS.forEach(function(p){ productById[p.id] = p; });
+
+  /* ---------------- STATE ---------------- */
+  var cart = loadCart(); // { productId: qty }
+  var activeCategory = "All";
+
+  function loadCart(){
+    try{
+      var raw = localStorage.getItem(CART_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }catch(e){ return {}; }
+  }
+  function saveCart(){
+    try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){}
+  }
+  function fmt(n){
+    return "\u20b9" + Number(n).toLocaleString("en-IN");
+  }
+  function cartCount(){
+    return Object.keys(cart).reduce(function(sum,id){ return sum + cart[id]; }, 0);
+  }
+  function cartTotal(){
+    return Object.keys(cart).reduce(function(sum,id){
+      var p = productById[id];
+      if(!p) return sum;
+      return sum + p.price * cart[id];
+    }, 0);
+  }
+
+  /* ---------------- RENDER PRODUCTS ---------------- */
+  var grid = document.getElementById("productGrid");
+
+  function renderProducts(){
+    var list = activeCategory === "All" ? PRODUCTS : PRODUCTS.filter(function(p){ return p.category === activeCategory; });
+    grid.innerHTML = list.map(function(p){
+      return (
+        '<div class="card">' +
+          '<span class="cat-tag">' + p.category + '</span>' +
+          '<div class="img-wrap">' +
+            '<img src="' + p.img + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.onerror=null;this.src=FALLBACK_IMG;">' +
+          '</div>' +
+          '<div class="card-body">' +
+            '<h3>' + escapeHtml(p.name) + '</h3>' +
+            '<p class="desc">' + escapeHtml(p.desc) + '</p>' +
+            '<div class="price-row"><span class="price">' + fmt(p.price) + '</span></div>' +
+            '<button class="add-btn" data-id="' + p.id + '">Add to Cart</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+  }
+
+  function escapeHtml(str){
+    var div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  grid.addEventListener("click", function(e){
+    var btn = e.target.closest(".add-btn");
+    if(!btn) return;
+    var id = btn.getAttribute("data-id");
+    cart[id] = (cart[id] || 0) + 1;
+    saveCart();
+    updateCartUI();
+    btn.textContent = "Added \u2713";
+    btn.classList.add("added");
+    setTimeout(function(){
+      btn.textContent = "Add to Cart";
+      btn.classList.remove("added");
+    }, 900);
+  });
+
+  /* ---------------- FILTER ---------------- */
+  var filterBar = document.getElementById("filterBar");
+  filterBar.addEventListener("click", function(e){
+    var pill = e.target.closest(".pill");
+    if(!pill) return;
+    activeCategory = pill.getAttribute("data-cat");
+    Array.prototype.forEach.call(filterBar.querySelectorAll(".pill"), function(el){
+      el.classList.toggle("active", el === pill);
+    });
+    renderProducts();
+  });
+
+  /* ---------------- CART UI ---------------- */
+  var cartCountHeader = document.getElementById("cartCountHeader");
+  var cartCountFab = document.getElementById("cartCountFab");
+  var drawerBody = document.getElementById("drawerBody");
+  var drawerFoot = document.getElementById("drawerFoot");
+  var grandTotalEl = document.getElementById("grandTotal");
+
+  function updateCartUI(bump){
+    var count = cartCount();
+    [cartCountHeader, cartCountFab].forEach(function(el){
+      el.textContent = count;
+      el.hidden = count === 0;
+      if(bump){
+        el.classList.remove("bump");
+        void el.offsetWidth;
+        el.classList.add("bump");
+      }
+    });
+    renderDrawer();
+  }
+
+  function renderDrawer(){
+    var ids = Object.keys(cart).filter(function(id){ return cart[id] > 0 && productById[id]; });
+    if(ids.length === 0){
+      drawerBody.innerHTML = '<div class="empty-cart">Your cart is empty.<br>Browse the collection and add a piece you love.</div>';
+      drawerFoot.hidden = true;
+      return;
+    }
+    drawerFoot.hidden = false;
+    drawerBody.innerHTML = ids.map(function(id){
+      var p = productById[id];
+      var qty = cart[id];
+      var subtotal = p.price * qty;
+      return (
+        '<div class="cart-item" data-id="' + id + '">' +
+          '<img src="' + p.img + '" alt="' + escapeHtml(p.name) + '" loading="lazy" onerror="this.onerror=null;this.src=FALLBACK_IMG;">' +
+          '<div>' +
+            '<p class="ci-name">' + escapeHtml(p.name) + '</p>' +
+            '<p class="ci-price">' + fmt(p.price) + ' each</p>' +
+            '<div class="qty-row">' +
+              '<button class="qty-btn" data-action="dec" aria-label="Decrease quantity">\u2212</button>' +
+              '<span class="qty-val">' + qty + '</span>' +
+              '<button class="qty-btn" data-action="inc" aria-label="Increase quantity">+</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="ci-right">' +
+            '<span class="ci-subtotal">' + fmt(subtotal) + '</span>' +
+            '<button class="remove-link" data-action="remove">Remove</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join("");
+    grandTotalEl.textContent = fmt(cartTotal());
+  }
+
+  drawerBody.addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-action]");
+    if(!btn) return;
+    var itemEl = e.target.closest(".cart-item");
+    var id = itemEl.getAttribute("data-id");
+    var action = btn.getAttribute("data-action");
+    if(action === "inc"){ cart[id] = (cart[id] || 0) + 1; }
+    else if(action === "dec"){
+      cart[id] = (cart[id] || 0) - 1;
+      if(cart[id] <= 0) delete cart[id];
+    } else if(action === "remove"){
+      delete cart[id];
+    }
+    saveCart();
+    updateCartUI();
+  });
+
+  /* ---------------- DRAWER OPEN/CLOSE ---------------- */
+  var overlay = document.getElementById("overlay");
+  var drawer = document.getElementById("cartDrawer");
+
+  function openDrawer(){
+    drawer.classList.add("open");
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeDrawer(){
+    drawer.classList.remove("open");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  document.getElementById("cartIconBtn").addEventListener("click", openDrawer);
+  document.getElementById("fabCartBtn").addEventListener("click", openDrawer);
+  document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
+  overlay.addEventListener("click", function(){
+    closeDrawer();
+    closeCheckoutModal();
+    closeConfirmModal();
+  });
+
+  /* ---------------- CHECKOUT MODAL ---------------- */
+  var checkoutOverlay = document.getElementById("checkoutOverlay");
+  var orderSummaryBox = document.getElementById("orderSummaryBox");
+  var orderSummaryField = document.getElementById("orderSummaryField");
+  var grandTotalField = document.getElementById("grandTotalField");
+  var orderForm = document.getElementById("orderForm");
+  var submitBtn = document.getElementById("submitOrderBtn");
+  var submitLabel = document.getElementById("submitLabel");
+  var submitError = document.getElementById("submitError");
+
+  function buildOrderSummary(){
+    var ids = Object.keys(cart).filter(function(id){ return cart[id] > 0 && productById[id]; });
+    var lines = ids.map(function(id){
+      var p = productById[id];
+      var qty = cart[id];
+      var subtotal = p.price * qty;
+      return p.name + "  |  Qty: " + qty + "  |  " + fmt(p.price) + " each  |  Subtotal: " + fmt(subtotal);
+    });
+    var total = cartTotal();
+    var text = "ORDER FROM " + SHOP_NAME.toUpperCase() + " WEBSITE\n\n" +
+      "Items:\n" + lines.map(function(l){ return "- " + l; }).join("\n") +
+      "\n\nGRAND TOTAL: " + fmt(total);
+    return { text: text, html: lines.map(function(l){ return "<div>" + escapeHtml(l) + "</div>"; }).join("") + "<div style='margin-top:8px;'><strong>Grand Total: " + fmt(total) + "</strong></div>", total: total };
+  }
+
+  function openCheckout(){
+    if(cartCount() === 0) return;
+    var summary = buildOrderSummary();
+    orderSummaryBox.innerHTML = summary.html;
+    orderSummaryField.value = summary.text;
+    grandTotalField.value = fmt(summary.total);
+    checkoutOverlay.classList.add("open");
+    submitError.style.display = "none";
+  }
+  function closeCheckoutModal(){
+    checkoutOverlay.classList.remove("open");
+  }
+  document.getElementById("placeOrderBtn").addEventListener("click", function(){
+    closeDrawer();
+    openCheckout();
+  });
+  document.getElementById("closeCheckout").addEventListener("click", closeCheckoutModal);
+
+  /* ---------------- SUBMIT ORDER ---------------- */
+  orderForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    submitError.style.display = "none";
+
+    // rebuild summary right before send, in case cart changed
+    var summary = buildOrderSummary();
+    orderSummaryField.value = summary.text;
+    grandTotalField.value = fmt(summary.total);
+
+    submitBtn.disabled = true;
+    submitLabel.innerHTML = '<span class="spinner"></span> Sending...';
+
+    var formData = new FormData(orderForm);
+
+    fetch(FORMSPREE_ACTION, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: formData
+    }).then(function(response){
+      if(response.ok){
+        cart = {};
+        saveCart();
+        updateCartUI();
+        orderForm.reset();
+        closeCheckoutModal();
+        openConfirmModal();
+      } else {
+        response.json().then(function(data){
+          console.error("Formspree error:", data);
+        }).catch(function(){});
+        showSubmitError();
+      }
+    }).catch(function(err){
+      console.error(err);
+      showSubmitError();
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitLabel.textContent = "Confirm & Send Order";
+    });
+  });
+
+  function showSubmitError(){
+    submitError.style.display = "block";
+  }
+
+  /* ---------------- CONFIRMATION MODAL ---------------- */
+  var confirmOverlay = document.getElementById("confirmOverlay");
+  function openConfirmModal(){ confirmOverlay.classList.add("open"); }
+  function closeConfirmModal(){ confirmOverlay.classList.remove("open"); }
+  document.getElementById("closeConfirm").addEventListener("click", closeConfirmModal);
+
+  /* ---------------- INIT ---------------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+  renderProducts();
+  updateCartUI();
+
+})();
+</script>
+</body>
+</html>
